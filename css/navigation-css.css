@@ -1,0 +1,84 @@
+/* Navigation
+---------------------------------*/
+#tabholder {
+width:740px;
+background-color: #1c1c1b;
+}
+#subholder {
+background-color: #969696;
+height:22px;
+border-bottom: 1px solid #FFF;
+}
+#navBottom {
+height:5px;
+background-color: #1C1C1B;
+border-bottom: 1px solid #FFF;
+}
+
+ul#tabnav {
+text-align: center;
+margin: 0px;
+border-bottom: 1px solid #FFF;
+list-style-type: none;
+padding: 3px 10px 3px 10px;
+}
+
+ul#tabnav li {
+display: inline;
+}
+
+body#tab1 li.tab1, body#tab2 li.tab2, body#tab3 li.tab3, body#tab4 li.tab4 {
+border-bottom: 1px solid #969696;
+background-color: #969696;
+}
+
+body#tab1 li.tab1 a, body#tab2 li.tab2 a, body#tab3 li.tab3 a, body#tab4 li.tab4 a {
+background-color: #969696;
+color: #312F2C;
+position: relative;
+top: 1px;
+padding-top: 4px;
+}
+
+ul#tabnav li a {
+padding: 3px 38px;
+border: 1px solid #FFF;
+background-color: #968E7E;
+color: #FFF;
+margin-right: 0px;
+text-decoration: none;
+text-transform: uppercase;
+font-size: 13px;
+border-bottom: none;
+}
+
+ul#tabnav a:hover {
+background: #938F88;
+color:#312F2C
+}
+
+ul#subnav {
+text-align:left;
+list-style-type: none;
+margin: 0;
+padding: 0;
+padding-left:4px;
+line-height:22px;
+}
+ul#subnav li {
+display:inline;
+}
+ul#subnav li a{
+padding: 0px 20px;
+text-decoration: none;
+text-transform:capitalize;
+font-size: 12px;
+color: #FFF;
+border-right: solid 1px #FFF;
+border-left: solid 1px #FFF;
+}
+ul#subnav li a:hover {
+color:#FFF;
+background-color:#313131;
+}
+#tab5{}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?> 
+<images>
+    <pic>
+        <image>portpics/accessories.jpg</image>
+        <catagory>Accessories</catagory>
+        <caption>Accessories are the finishing touch to any space, complimentng your interior design and providing elegant pieces for practical purposes.</caption>
+	<url>accessories.htm</url>
+    </pic>
+    <pic>
+        <image>portpics/children.jpg</image>
+        <catagory>Children &amp; Toys</catagory>
+        <caption>Heirloom toys and furniture will delight your child today and their children tomorrow. Whether trucks or trains of different hardwoods, or perfectly scaled tables and chairs for a teddy bear picnic, playtime awaits. Hand carved rocking horses with leather saddles and bridles or miniature doll houses provide hours of fun. Custom cradles for infants later become a home for teddy bears.</caption>
+	<url>toys.htm</url>
+    </pic>
+    <pic>
+        <image>portpics/furniture.jpg</image>
+        <catagory>Furniture</catagory>
+        <caption>Furnishings reflect your good taste and style, whether it's an Arts &amp; Crafts bookcase or a chest of drawers styled after an antique spool cabinet. We build custom pieces to fit that special place: the matching sideboard to add ease to dining, a bench for an awkward corner or the entertainment centre of your dreams.</caption>
+	<url>cabinets.htm</url>
+    </pic>
+    <pic>
+        <image>portpics/garden.jpg</image>
+        <catagory>Garden</catagory>
+        <caption>Furniture designed for your Garden needs: handcrafted signs, benches, gates, or patio tables, in various woods customized to your outdoor living style.</caption>
+	<url>garden.htm</url>
+    </pic>
+    <pic>
+        <image>portpics/kitchen.jpg</image>
+        <catagory>Kitchen &amp; Bath</catagory>
+        <caption>Custom kitchen cabinets and bathroom vanities will have the special features that you want and need. Cabinet doors and frames constructed from the solid hardwood of your choice with strongly constructed drawers designed to last, finished with stains to match your style and with the latest types of slides and hidden European hinges.</caption>
+	<url>kitchen.htm</url>
+    </pic>
+    <pic>
+        <image>portpics/reproduction.jpg</image>
+        <catagory>Reproduction</catagory>
+        <caption>Whether it be replacing that well used dining room chair or duplicating that one-of-a-kind piece, we can replicate your furniture to match your well defined style.</caption>
+	<url>reproduction.htm</url>
+    </pic>
+</images>

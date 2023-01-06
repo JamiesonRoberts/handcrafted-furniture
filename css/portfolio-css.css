@@ -1,0 +1,51 @@
+/* Portfolio
+---------------------------------*/
+.port {
+margin-left:18px;
+margin-top:19px;
+margin-right:18px;
+width:702px;
+height:185px;
+text-align:left;
+}
+.port ul{
+padding:0px;
+margin:0px;
+}
+.port li.item{
+list-style:none outside;
+float:left;
+width:340px;
+height:185px;
+background-color:#e3e3e3;
+border:1px solid #000000;
+}
+.port li.spacer{
+list-style:none outside;
+float:left;
+width:18px;
+height:180px;
+border:none;
+}
+.port img{
+float:left;
+width:100px;
+height:185px;
+border-right:1px solid #000000;
+}
+.port p{
+width:225px;
+float:right;
+padding:7px;
+font-size:11px;
+height:171px;
+margin:0px;
+display:block;
+}
+.port a{
+text-decoration:none;
+color:#000000;
+}
+.port li a:hover{
+color:#999999;
+}

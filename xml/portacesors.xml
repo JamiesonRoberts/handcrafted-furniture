@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<images>
+    <pic>
+        <thumbnail>portpicsthumb/woakmirrorsmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/roakmirrorsmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/rrclocksmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/sprtsclocksmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/standsmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/platesmall.jpg</thumbnail>
+    </pic>
+	<pic>
+        <thumbnail>portpicsthumb/watercabsmall.jpg</thumbnail>
+	</pic>
+	<pic>
+        <thumbnail>portpicsthumb/chairstepsmall.jpg</thumbnail>
+	</pic>
+	<pic>
+        <thumbnail>portpicsthumb/signsmall.jpg</thumbnail>
+	</pic>
+</images>

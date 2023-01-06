@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<images>
+    <pic>
+        <thumbnail>portpicsthumb/2doorvanitysmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/largevanitysmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/cornercabinetsmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/kitchensmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/pinevansmall.jpg</thumbnail>
+    </pic>
+</images>

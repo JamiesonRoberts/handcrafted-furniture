@@ -1,0 +1,79 @@
+/* Main Elements
+----------------------------------*/
+.mainHead {
+height: 90px;
+width: 740px;
+background: url(../images/mainhead.jpg) no-repeat right;
+}
+.mainLeft, .mainRight {
+width:370px;
+}
+.mainLeft {
+float:left;
+text-align:left;
+}
+.mainRight {
+float:right;
+}
+.mainLeft p {
+color:#1c1c1b;
+font-size:13px;
+padding-left:10px;
+padding-right:10px;
+text-indent:25px;
+width:350px;
+padding-top:5px;
+margin:0px;
+padding-bottom:25px;
+text-align:left;
+}
+.mainLeftHead {
+width:369px;
+height:90px;
+border-right:#FFFFFF solid 1px;
+}
+.mainRight .img01, .mainRight .img03 {
+float:left
+}
+.mainRight .img02, .mainRight .img04 {
+float:left
+}
+.portFlash {
+border-top:1px solid #FFFFFF;
+border-bottom:1px solid #1c1c1b;
+}
+/* Rollover buttons
+----------------------------------*/
+.cssnav {
+position: relative;
+background-image: url(../images/buttondown.jpg);
+background-repeat: no-repeat;
+white-space: nowrap;
+display: block;
+width:200px;
+height:25px;
+margin-left:20px;
+padding:0px;
+margin-top:5px;
+text-align:left;
+}
+.cssnav a {
+display: block;
+color: #1c1c1b;
+font-size:9px;
+width:200px;
+height: 25px;
+display: block;
+text-decoration: none;
+}
+.cssnav img {height: 25px; border: 0; }
+* html a:hover {visibility:visible}
+.cssnav a:hover img{visibility:hidden}
+.cssnav span {
+position:absolute;
+left:25px;
+top:6px;
+margin: 0px;
+padding: 0px;
+cursor: pointer;
+}

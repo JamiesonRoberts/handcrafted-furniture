@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<images>
+    <pic>
+        <thumbnail>portpicsthumb/trucksmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/dartboardsmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/adirondackchildsmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/rockingsmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/poolracksmall.jpg</thumbnail>
+    </pic>
+    <pic>
+        <thumbnail>portpicsthumb/pinestepsmall.jpg</thumbnail>
+    </pic>
+</images>

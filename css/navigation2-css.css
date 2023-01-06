@@ -1,0 +1,76 @@
+/* Navigation 
+---------------------------------*/
+#navigation {
+width: 740px;
+height: 55px;
+border-bottom: 1px solid #FFFFFF;
+background: #969696;
+}
+#navigation ul{
+padding: 0px;
+margin: 0px;
+}
+#navigation li {
+list-style: none outside;
+float: left;
+background-color: #968E7E;
+border-bottom: 1px solid #FFFFFF;
+}
+#navigation li a {
+color: #FFFFFF;
+text-decoration: none;
+text-transform: uppercase;
+text-indent: 15px;
+font-size: 13px;
+line-height:30px;
+display: block;
+text-align: left;
+}
+#navitem02 a, #navitem03 a {
+background:url(../images/arrow.jpg) no-repeat right #968e7e;
+}
+#navitem01 a, #navitem02 a, #navitem03 a {
+width: 184px;
+border-right: 1px solid #FFFFFF;
+}
+#navitem04 a {
+width: 185px;
+}
+#navigation li#navitem01 ul{margin-left:0px;}
+#navigation li#navitem02 ul{margin-left:-185px;}
+#navigation li#navitem03 ul{margin-left:-370px;}
+#navigation li#navitem04 ul{margin-left:-555px;}
+#navigation li ul {
+visibility:hidden;
+display:none;
+position: absolute;
+width: 740px;
+padding-top: 2px;
+margin: 0px;
+height: 22px;
+border: none;
+}
+#navigation li li {
+border: none;
+float: left;
+}
+#navigation li li a {
+background:url(../images/star.jpg) no-repeat left #969696;
+line-height:22px;
+display:block;
+border:0px;
+width:123px;
+font-size:11px;
+text-indent:22px;
+text-align:center;
+text-transform:capitalize;
+}
+/* Navigation - Hover
+---------------------------------*/
+#navigation li a:hover {
+color:#1c1c1b;
+}
+#navigation li:hover ul, #navigation li.sfhover ul {
+display:block;
+visibility:visible;
+}
