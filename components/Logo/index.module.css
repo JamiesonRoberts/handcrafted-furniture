@@ -1,0 +1,17 @@
+.mainText {
+    position: relative;
+    font-variant: small-caps;
+    font-weight: 500;
+}
+
+.subText {
+    font-style: italic;
+    font-size: 1.1rem;
+    position: absolute;
+    left: 45%;
+    bottom: -1rem;
+}
+
+.icon {
+
+}
