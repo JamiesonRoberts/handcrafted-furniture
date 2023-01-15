@@ -40,10 +40,12 @@ body {
     margin: 0;
     font-family: var(--oswald);
     text-rendering: optimizeLegibility;
+    letter-spacing: 1px;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--garamond);
+    font-weight: 600;
 }
 
 a {
