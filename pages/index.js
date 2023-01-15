@@ -59,9 +59,7 @@ export default function Home() {
                 />
             </Head>
             <main>
-                <h1>
-                    <Logo />
-                </h1>
+                <Logo />
             </main>
         </>
     )
