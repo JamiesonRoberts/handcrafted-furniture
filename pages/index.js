@@ -59,7 +59,7 @@ export default function Home() {
                 />
             </Head>
             <main>
-                <Logo />
+                <Logo tag={'h1'} />
             </main>
         </>
     )
