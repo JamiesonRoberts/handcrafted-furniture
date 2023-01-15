@@ -1,32 +1,51 @@
 :root {
-    --base-font: Verdana, Geneva, Arial, Helvetica, sans-serif;
-    --max-width: 75rem;
+    --background-color: #F7F7F7;
+    --color: #1c1c1b;
+    --link-color: #4863A9;
 }
 
-* {
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #1c1c1b;
+        --color: #FFFFFF;
+        --link-color: #4392F1;
+    }
+
+    html {
+        color-scheme: dark;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        /* turns off smooth-scrolling behavior (if turned on) when prefers-reduced-motion is active*/
+        scroll-behavior: auto;
+    }
+
+    *:not(.animates-without-motion),
+    *:not(.animates-without-motion)::before,
+    *:not(.animates-without-motion)::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+*, *::before, *::after {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-html,
-body, main {
-    max-width: 100vw;
-    overflow-x: hidden;
-    min-height: 100vh;
 }
 
 body {
-    font: var(--base-font);
+    margin: 0;
+    font-family: var(--oswald);
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--garamond);
 }
 
 a {
     color: inherit;
-    text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
