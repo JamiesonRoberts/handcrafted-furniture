@@ -38,16 +38,26 @@
 
 body {
     margin: 0;
-    font-family: var(--oswald);
+    font-family: var(--montserrat);
     text-rendering: optimizeLegibility;
-    letter-spacing: 1px;
+    line-height: 1.5rem;
+    padding: 1.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--garamond);
     font-weight: 600;
+    line-height: 1em;
 }
 
 a {
     color: inherit;
+}
+
+@media (min-width: 75rem) {
+    body {
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
+    }
 }

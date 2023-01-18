@@ -1,8 +1,8 @@
 import PlausibleProvider from 'next-plausible'
-import { EB_Garamond, Oswald } from '@next/font/google'
+import { EB_Garamond, Montserrat } from '@next/font/google'
 
 const garamond = EB_Garamond({ subsets: ['latin'] })
-const oswald = Oswald({ subsets: ['latin'] })
+const montserrat = Montserrat({ weight: '400', subsets: ['latin'] })
 
 import '../styles/globals.css'
 
@@ -15,7 +15,7 @@ const App = ({ Component, pageProps }) => {
             <style jsx global>{`
                 :root {
                     --garamond: ${garamond.style.fontFamily};
-                    --oswald: ${oswald.style.fontFamily};
+                    --montserrat: ${montserrat.style.fontFamily};
                 }
             `}</style>
             <Component {...pageProps} />

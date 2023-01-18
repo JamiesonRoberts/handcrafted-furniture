@@ -1,6 +1,10 @@
 import Head from 'next/head'
 
-import Logo from '../components/Logo'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+
+import styles from '../styles/Home.module.css'
+import Main from '../components/Main'
 
 export default function Home() {
     return (
@@ -59,9 +63,12 @@ export default function Home() {
                     media='(prefers-color-scheme: dark)'
                 />
             </Head>
-            <main>
-                <Logo tag={'h1'} />
-            </main>
+            <div className={styles.layout}>
+                <Header style={{ gridArea: 'header' }} />
+                <aside></aside>
+                <Main style={{ gridArea: 'main' }} />
+                <Footer style={{ gridArea: 'footer' }} />
+            </div>
         </>
     )
 }
