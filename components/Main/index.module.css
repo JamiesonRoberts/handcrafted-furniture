@@ -1,3 +1,21 @@
 .main {
 
 }
+
+.externalLinkList {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    gap: 1rem;
+}
+
+.externalLink {
+    display: flex;
+    align-items: center;
+}
+
+.externalLinkSVGIcon {
+    height: 2rem;
+    width: auto;
+}
