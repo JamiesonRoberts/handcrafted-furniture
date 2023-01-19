@@ -63,14 +63,6 @@ a {
     white-space: nowrap;
 }
 
-@media (min-width: 75rem) {
-    body {
-        display: flex;
-        align-items: center;
-        min-height: 100vh;
-    }
-}
-
 .layout {
     display: grid;
     grid-template-columns: 1fr;
@@ -81,9 +73,17 @@ a {
         "main"
         "footer";
     gap: 1rem;
+    max-width: 37.5rem;
+    margin: 0 auto;
 }
 
 @media (min-width: 75rem) {
+    body {
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
+    }
+
     .layout {
         display: grid;
         grid-template-columns: minmax(30rem, 1fr) 2fr;
