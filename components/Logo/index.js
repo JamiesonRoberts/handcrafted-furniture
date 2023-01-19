@@ -19,6 +19,7 @@ export default function Logo({ tag = 'h1', className, ...rest }) {
                     height={41}
                     aria-hidden={true}
                     focusable={false}
+                    className={styles.icon}
                 />
             </span>
         </Tag>

@@ -54,10 +54,43 @@ a {
     color: inherit;
 }
 
+.visually-hidden, .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
 @media (min-width: 75rem) {
     body {
         display: flex;
         align-items: center;
         min-height: 100vh;
+    }
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+        "header"
+        "aside"
+        "main"
+        "footer";
+    gap: 1rem;
+}
+
+@media (min-width: 75rem) {
+    .layout {
+        display: grid;
+        grid-template-columns: minmax(30rem, 1fr) 2fr;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas:
+        "header aside"
+        "main aside"
+        "footer aside";
     }
 }

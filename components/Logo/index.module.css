@@ -10,8 +10,19 @@
 
 .subText {
     font-style: italic;
-    font-size: 1.1rem;
+    font-size: 0.55em;
     display: flex;
-    margin-top: -0.5rem;
+    margin-top: -0.25em;
     margin-left: 44%;
+}
+
+.icon {
+    width: 2.1591em;
+    height: auto;
+}
+
+@media (max-width: 26rem) {
+    .tag {
+        font-size: 1.45rem;
+    }
 }
