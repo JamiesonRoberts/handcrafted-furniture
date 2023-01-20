@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-import Logo from '../components/Logo'
+import Logo from '@/components/Logo'
 
 const layoutStyles = {
     minHeight: '100vh',
