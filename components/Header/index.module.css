@@ -1,0 +1,10 @@
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 75rem) {
+    .logo {
+        justify-content: flex-start;
+    }
+}

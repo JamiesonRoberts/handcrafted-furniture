@@ -1,0 +1,3 @@
+Sitemap: https://handcraftedfurniture.ca/sitemap.xml
+User-agent:*
+Disallow:
