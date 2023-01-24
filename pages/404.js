@@ -4,8 +4,8 @@ import Link from 'next/link'
 import Logo from '@/components/Logo'
 
 const layoutStyles = {
-    minHeight: '100vh',
-    width: '100vw',
+    minHeight: 'calc(100vh - 3rem)',
+    width: 'calc(100vw - 3rem)',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
