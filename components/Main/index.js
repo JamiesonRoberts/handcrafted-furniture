@@ -3,11 +3,11 @@ import { usePlausible } from 'next-plausible'
 
 import styles from './index.module.css'
 
-export default function Main({ className, ...rest }) {
+export default function Main({ ...rest }) {
     const plausible = usePlausible()
 
     return (
-        <main className={className} {...rest}>
+        <main {...rest}>
             <h2>About</h2>
             <p>
                 We are a family run custom cabinetry business serving Canada and
@@ -31,7 +31,7 @@ export default function Main({ className, ...rest }) {
             </p>
             <h2>Contact</h2>
 
-            <a
+            <Link
                 href={
                     'mailto:ken@handcraftedfurniture.ca?subject=Email%20Inquiry%20from%20Handcraftedfurniture.ca'
                 }
@@ -40,14 +40,14 @@ export default function Main({ className, ...rest }) {
                 }}
             >
                 ken@handcraftedfurniture.ca
-            </a>
+            </Link>
             <ul
                 aria-label={
                     'A list of other websites and services that Jamieson is active on, links will open new tabs or windows.'
                 }
                 className={styles.externalLinkList}
             >
-                <li className={styles.externalLinkItem}>
+                <li>
                     <Link
                         href={'https://www.facebook.com/jamieson.roberts/'}
                         target={'_blank'}
@@ -72,7 +72,7 @@ export default function Main({ className, ...rest }) {
                         </span>
                     </Link>
                 </li>
-                <li className={styles.externalLinkItem}>
+                <li>
                     <Link
                         href={'https://www.instagram.com/jamiesonroberts/'}
                         target={'_blank'}

@@ -1,12 +1,10 @@
-import classNames from 'classnames'
-
 import Logo from '../Logo'
 
 import styles from './index.module.css'
 
-export default function Footer({ className, ...rest }) {
+export default function Header({ ...rest }) {
     return (
-        <header className={classNames(className)} {...rest}>
+        <header {...rest}>
             <div className={styles.logo}>
                 <Logo tag={'h1'} />
             </div>

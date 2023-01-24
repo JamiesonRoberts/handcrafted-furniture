@@ -20,6 +20,7 @@ export default function Logo({ tag = 'h1', className, ...rest }) {
                     aria-hidden={true}
                     focusable={false}
                     className={styles.icon}
+                    alt={'A maple leaf'}
                 />
             </span>
         </Tag>
