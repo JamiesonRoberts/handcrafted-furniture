@@ -6,6 +6,7 @@ const garamond = EB_Garamond({ subsets: ['latin'] })
 const montserrat = Montserrat({ weight: '400', subsets: ['latin'] })
 
 import '@/styles/globals.css'
+import '@/styles/flickity.css'
 
 const App = ({ Component, pageProps }) => {
     return (
