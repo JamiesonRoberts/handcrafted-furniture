@@ -4,18 +4,6 @@
     --link-color-hover: rgba(190,80,39,1);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background-color: #1c1c1b;
-        --color: #FFFFFF;
-        --link-color-hover: rgba(190,80,39,1);
-    }
-
-    html {
-        color-scheme: dark;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
     html:focus-within {
         /* turns off smooth-scrolling behavior (if turned on) when prefers-reduced-motion is active*/
@@ -86,6 +74,7 @@ a:hover, a:focus {
     body {
         display: flex;
         align-items: center;
+        justify-content: center;
         min-height: 100vh;
     }
 
@@ -94,8 +83,9 @@ a:hover, a:focus {
         grid-template-columns: minmax(30rem, 1fr) 2fr;
         grid-template-rows: repeat(3, auto);
         grid-template-areas:
-        "header aside"
-        "main aside"
-        "footer aside";
+            "header aside"
+            "main aside"
+            "footer aside";
+        max-width: 85rem;
     }
 }
