@@ -8,10 +8,7 @@ const galleryContent = [
     {
         img: {
             src: '/gallery/image_1.jpg',
-            alt: '',
             ratio: 768 / 1024,
-            width: 600,
-            height: 500,
         },
         caption:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi interdum tincidunt dolor eu aliquam.',
@@ -19,7 +16,6 @@ const galleryContent = [
     {
         img: {
             src: '/gallery/image_2.jpg',
-            alt: '',
             ratio: 730 / 954,
         },
         caption:
@@ -28,7 +24,6 @@ const galleryContent = [
     {
         img: {
             src: '/gallery/image_3.jpg',
-            alt: '',
             ratio: 1200 / 757,
         },
         caption:
@@ -37,7 +32,6 @@ const galleryContent = [
     {
         img: {
             src: '/gallery/image_4.jpg',
-            alt: '',
             ratio: 768 / 1024,
         },
         caption: 'Maecenas rhoncus urna eu efficitur lobortis.',
@@ -45,7 +39,6 @@ const galleryContent = [
     {
         img: {
             src: '/gallery/image_5.jpg',
-            alt: '',
             ratio: 677 / 994,
         },
         caption:
@@ -54,7 +47,6 @@ const galleryContent = [
     {
         img: {
             src: '/gallery/image_6.jpg',
-            alt: '',
             ratio: 1024 / 768,
         },
         caption: 'Etiam efficitur facilisis nisi eget vestibulum.',
@@ -62,7 +54,6 @@ const galleryContent = [
     {
         img: {
             src: '/gallery/image_7.jpg',
-            alt: '',
             ratio: 1006 / 500,
         },
         caption: 'Maecenas venenatis pellentesque consequat.',
@@ -70,7 +61,6 @@ const galleryContent = [
     {
         img: {
             src: '/gallery/image_9.jpg',
-            alt: '',
             ratio: 388 / 550,
         },
         caption:
@@ -99,38 +89,25 @@ export default function Aside({ className, ...rest }) {
                 }}
             >
                 {galleryContent.map((content, i) => {
-                    let width = 600
-                    let height = 600 * content.img.ratio
-                    if (content.img.ratio >= 1) {
-                        height = 600
-                        width = 600 * content.img.ratio
-                    }
-
-                    let paddingBottom = content.img.ratio * 100
-                    if (paddingBottom >= 140) paddingBottom = 140
-
                     return (
                         <figure
                             key={i}
                             className={styles.slide}
                             data-ratio={content.img.ratio}
                         >
-                            <div
-                                className={styles.image}
-                                style={{
-                                    paddingBottom: `${paddingBottom}%`,
-                                }}
-                            >
+                            <div className={styles.imageHolder}>
                                 <Image
+                                    className={styles.image}
                                     src={content.img.src}
-                                    alt={content.img.alt}
-                                    width={width}
-                                    height={height}
+                                    width={600}
+                                    height={600 * content.img.ratio}
                                     priority={i === 0 ? true : false}
                                     sizes='(min-width: 75rem) 50vw, 90vw'
                                 />
                             </div>
-                            <figcaption>{content.caption}</figcaption>
+                            <figcaption className={styles.caption}>
+                                {content.caption}
+                            </figcaption>
                         </figure>
                     )
                 })}

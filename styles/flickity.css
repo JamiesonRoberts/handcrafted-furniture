@@ -18,8 +18,8 @@
 
 .flickity-prev-next-button {
     top: 50%;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 2.25rem;
+    height: 2.25rem;
     border-radius: 50%;
     transform: translateY(-50%);
     position: absolute;
@@ -31,14 +31,19 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
+    opacity: 0.25;
+}
+
+.flickity-prev-next-button:hover {
+    opacity: 1;
 }
 
 .flickity-prev-next-button.previous {
-    left: 1px;
+    left: -2.5rem;
 }
 
 .flickity-prev-next-button.next {
-    right: 0;
+    right: -2.5rem;
 }
 
 .flickity-button-icon {
@@ -84,8 +89,8 @@
 
 .flickity-page-dots .dot {
     display: inline-block;
-    width: 1rem;
-    height: 1rem;
+    width: 0.75rem;
+    height: 0.75rem;
     background: var(--color);
     border-radius: 50%;
     opacity: 0.25;
