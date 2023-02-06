@@ -1,19 +1,7 @@
 :root {
     --background-color: #F7F7F7;
     --color: #1c1c1b;
-    --link-color: #4863A9;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background-color: #1c1c1b;
-        --color: #FFFFFF;
-        --link-color: #4392F1;
-    }
-
-    html {
-        color-scheme: dark;
-    }
+    --link-color-hover: rgba(190,80,39,1);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -52,6 +40,11 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
     color: inherit;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover, a:focus {
+    color: var(--link-color-hover);
 }
 
 .visually-hidden, .sr-only {
@@ -81,6 +74,7 @@ a {
     body {
         display: flex;
         align-items: center;
+        justify-content: center;
         min-height: 100vh;
     }
 
@@ -89,8 +83,10 @@ a {
         grid-template-columns: minmax(30rem, 1fr) 2fr;
         grid-template-rows: repeat(3, auto);
         grid-template-areas:
-        "header aside"
-        "main aside"
-        "footer aside";
+            "header aside"
+            "main aside"
+            "footer aside";
+        max-width: 85rem;
+        gap: 1rem 3rem;
     }
 }
