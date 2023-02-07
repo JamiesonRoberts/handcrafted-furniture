@@ -10,61 +10,57 @@ const galleryContent = [
             src: '/gallery/image_1.jpg',
             ratio: 768 / 1024,
         },
-        caption:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi interdum tincidunt dolor eu aliquam.',
+        caption: 'Stake Truck of various hardwoods',
     },
     {
         img: {
             src: '/gallery/image_2.jpg',
             ratio: 730 / 954,
         },
-        caption:
-            'Ut ornare sit amet lorem in sagittis. Proin faucibus lacus nunc.',
+        caption: 'Red Oak Buffet & Hutch',
     },
     {
         img: {
             src: '/gallery/image_3.jpg',
             ratio: 1200 / 757,
         },
-        caption:
-            'Donec varius ligula vel metus sagittis, id efficitur magna pharetra.',
+        caption: 'Chair / Step Ladder in Oak',
     },
     {
         img: {
             src: '/gallery/image_4.jpg',
             ratio: 768 / 1024,
         },
-        caption: 'Maecenas rhoncus urna eu efficitur lobortis.',
+        caption:
+            'Serving Tray & Cutting Board - Hard Maple / Black Walnut Butterfly Joints',
     },
     {
         img: {
             src: '/gallery/image_5.jpg',
             ratio: 677 / 994,
         },
-        caption:
-            'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque maximus ante a risus finibus sollicitudin.',
+        caption: 'White Oak Patio Table with Extension Leaf',
     },
     {
         img: {
             src: '/gallery/image_6.jpg',
             ratio: 1024 / 768,
         },
-        caption: 'Etiam efficitur facilisis nisi eget vestibulum.',
+        caption: 'Cherry Night Table with Aromatic Cedar Drawer & Interior',
     },
     {
         img: {
             src: '/gallery/image_7.jpg',
             ratio: 1006 / 500,
         },
-        caption: 'Maecenas venenatis pellentesque consequat.',
+        caption: 'Bent Wood Music Stand in White Oak',
     },
     {
         img: {
             src: '/gallery/image_9.jpg',
             ratio: 388 / 550,
         },
-        caption:
-            'Praesent rutrum, libero nec tempus tincidunt, lacus velit sollicitudin enim, nec consequat enim diam nec lorem.',
+        caption: 'Contemporary Chest of Drawers in Ash with Onyx stain',
     },
 ]
 
