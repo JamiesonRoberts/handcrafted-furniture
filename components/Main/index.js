@@ -24,10 +24,10 @@ export default function Main({ ...rest }) {
             <p>
                 If you have been looking for a specific piece of furniture or
                 can&apos;t find exactly what you need, we can customize your
-                piece. Using a variety of local hardwoods or imported exotic
-                woods, and offering various finishes we can customize your
-                piece. Featuring quality workmanship at a reasonable price, we
-                make your furniture to your specifications to suit your space.
+                piece using a variety of local hardwoods or imported exotic
+                woods and various finishes. Featuring quality workmanship, we
+                will make your furniture to your specifications to suit your
+                space and decor.
             </p>
             <h2>Contact</h2>
 

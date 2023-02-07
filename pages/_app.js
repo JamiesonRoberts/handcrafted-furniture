@@ -44,16 +44,7 @@ const App = ({ Component, pageProps }) => {
                     color='#1c1c1b'
                 />
                 <meta name='msapplication-TileColor' content='#1c1c1b' />
-                <meta
-                    name='theme-color'
-                    content='#F7F7F7'
-                    media='(prefers-color-scheme: light)'
-                />
-                <meta
-                    name='theme-color'
-                    content='#1C1C1B'
-                    media='(prefers-color-scheme: dark)'
-                />
+                <meta name='theme-color' content='#F7F7F7' />
             </Head>
             <style jsx global>{`
                 :root {
