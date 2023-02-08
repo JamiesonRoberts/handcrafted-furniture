@@ -7,28 +7,35 @@ import Image from 'next/image'
 const galleryContent = [
     {
         img: {
-            src: '/gallery/image_1.jpg',
+            src: '/gallery/stake-truck.jpg',
             ratio: 768 / 1024,
         },
         caption: 'Stake Truck of various hardwoods',
     },
     {
         img: {
-            src: '/gallery/image_2.jpg',
+            src: '/gallery/red-oak-buffet-hutch.jpg',
             ratio: 730 / 954,
         },
         caption: 'Red Oak Buffet & Hutch',
     },
     {
         img: {
-            src: '/gallery/image_3.jpg',
+            src: '/gallery/lutyen-bench.jpg',
+            ratio: 1000 / 546,
+        },
+        caption: 'Lutyen Bench in White Oak',
+    },
+    {
+        img: {
+            src: '/gallery/chair-step-ladder.jpg',
             ratio: 1200 / 757,
         },
         caption: 'Chair / Step Ladder in Oak',
     },
     {
         img: {
-            src: '/gallery/image_4.jpg',
+            src: '/gallery/serving-tray-cutting-board.jpg',
             ratio: 768 / 1024,
         },
         caption:
@@ -36,28 +43,28 @@ const galleryContent = [
     },
     {
         img: {
-            src: '/gallery/image_5.jpg',
+            src: '/gallery/patio-table.jpg',
             ratio: 677 / 994,
         },
         caption: 'White Oak Patio Table with Extension Leaf',
     },
     {
         img: {
-            src: '/gallery/image_6.jpg',
+            src: '/gallery/cherry-night-table.jpg',
             ratio: 1024 / 768,
         },
         caption: 'Cherry Night Table with Aromatic Cedar Drawer & Interior',
     },
     {
         img: {
-            src: '/gallery/image_7.jpg',
+            src: '/gallery/bent-wood-music-stand.jpg',
             ratio: 1006 / 500,
         },
         caption: 'Bent Wood Music Stand in White Oak',
     },
     {
         img: {
-            src: '/gallery/image_9.jpg',
+            src: '/gallery/chest-of-drawers.jpg',
             ratio: 388 / 550,
         },
         caption: 'Contemporary Chest of Drawers in Ash with Onyx stain',
@@ -99,9 +106,14 @@ export default function Aside({ className, ...rest }) {
                                     height={600 * content.img.ratio}
                                     priority={i === 0 ? true : false}
                                     sizes='(min-width: 75rem) 50vw, 90vw'
+                                    alt={content.caption}
+                                    aria-labelledby={`image-description-${i}`}
                                 />
                             </div>
-                            <figcaption className={styles.caption}>
+                            <figcaption
+                                id={`image-description-${i}`}
+                                className={styles.caption}
+                            >
                                 {content.caption}
                             </figcaption>
                         </figure>
