@@ -76,6 +76,7 @@ export default function Aside({ className, ...rest }) {
         <aside className={classNames(styles.aside, className)} {...rest}>
             <Flickity
                 className={styles.gallery}
+                static={true}
                 options={{
                     pageDots: true,
                     cellAlign: 'left',
