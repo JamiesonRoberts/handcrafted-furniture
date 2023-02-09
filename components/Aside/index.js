@@ -21,8 +21,8 @@ const galleryContent = [
     },
     {
         img: {
-            src: '/gallery/lutyen-bench.jpg',
-            ratio: 1000 / 546,
+            src: '/gallery/lutyen-bench-v2.jpg',
+            ratio: 1350 / 1080,
         },
         caption: 'Lutyen Bench in White Oak',
     },
