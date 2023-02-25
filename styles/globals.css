@@ -1,7 +1,13 @@
 :root {
     --background-color: #F7F7F7;
     --color: #1c1c1b;
-    --link-color-hover: rgba(190,80,39,1);
+    --link-color-hover: rgba(190, 80, 39, 1);
+}
+
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+    img[loading="lazy"] {
+        clip-path: inset(0.6px)
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
