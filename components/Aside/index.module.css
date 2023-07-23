@@ -1,6 +1,5 @@
 .aside {
     align-self: center;
-    padding: 0 1.5rem;
     max-width: 37.5rem;
     overflow: hidden;
 }
@@ -20,13 +19,15 @@
     position: relative;
     touch-action: pan-y;
     user-select: none;
-    width: 100%
+    width: 100%;
 }
 
 .slide {
     overflow: hidden;
     position: relative;
     width: 100%;
+    margin: 0;
+    flex: 1 0 100%;
 }
 
 .imageHolder {
