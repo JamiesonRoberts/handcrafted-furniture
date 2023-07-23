@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Image from 'next/image'
 
 import classNames from 'classnames'
@@ -73,8 +74,17 @@ const galleryContent = [
 ]
 
 export default function Aside({ className, ...rest }) {
-    const [sliderRef] = useKeenSlider({
+    const [currentSlide, setCurrentSlide] = useState(0)
+    const [loaded, setLoaded] = useState(false)
+    const [sliderRef, instanceRef] = useKeenSlider({
         selector: `.${styles.slide}`,
+        draggable: true,
+        slideChanged(slider) {
+            setCurrentSlide(slider.track.details.rel)
+        },
+        created() {
+            setLoaded(true)
+        },
     })
 
     return (
@@ -105,6 +115,54 @@ export default function Aside({ className, ...rest }) {
                     )
                 })}
             </div>
+            {loaded && instanceRef.current && (
+                <div className={styles.dots}>
+                    <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        viewBox='0 0 24 24'
+                        onClick={(e) =>
+                            e.stopPropagation() || instanceRef.current?.prev()
+                        }
+                        disabled={currentSlide === 0}
+                        className={styles.arrow}
+                    >
+                        <path d='M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z' />
+                    </svg>
+
+                    {[
+                        ...Array(
+                            instanceRef.current.track.details.slides.length,
+                        ).keys(),
+                    ].map((idx) => {
+                        return (
+                            <button
+                                key={idx}
+                                onClick={() => {
+                                    instanceRef.current?.moveToIdx(idx)
+                                }}
+                                className={classNames(
+                                    styles.dot,
+                                    currentSlide === idx ? styles.active : '',
+                                )}
+                            ></button>
+                        )
+                    })}
+                    <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        viewBox='0 0 24 24'
+                        onClick={(e) =>
+                            e.stopPropagation() || instanceRef.current?.next()
+                        }
+                        disabled={
+                            currentSlide ===
+                            instanceRef.current.track.details.slides.length - 1
+                        }
+                        className={styles.arrow}
+                    >
+                        <path d='M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z' />
+                    </svg>
+                </div>
+            )}
         </aside>
     )
 }
