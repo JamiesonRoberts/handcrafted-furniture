@@ -51,3 +51,49 @@
     font-size: 0.875rem;
     padding: 0.75rem;
 }
+
+.dots {
+    display: flex;
+    padding: 10px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+    outline: none;
+    background-color: transparent;
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+    margin: 0 0.375rem;
+}
+
+.arrow[disabled] {
+    pointer-events: none;
+    opacity: 0.25;
+    cursor: auto;
+}
+
+.dot {
+    border: none;
+    width: 0.625rem;
+    height: 0.625rem;
+    background-color: #c5c5c5;
+    border-radius: 1rem;
+    margin: 0 5px;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, width 0.2s ease-in-out;
+}
+
+.dot:focus {
+    outline: none;
+}
+
+.dot.active {
+    background-color: #000;
+    width: 0.825rem;
+}
