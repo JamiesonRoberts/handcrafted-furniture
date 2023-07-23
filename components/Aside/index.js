@@ -123,7 +123,7 @@ export default function Aside({ className, ...rest }) {
                         }
                         disabled={currentSlide === 0}
                         className={styles.arrow}
-                        role='none'
+                        aria-hidden='true'
                         tabIndex='-1'
                     >
                         <svg
@@ -148,7 +148,7 @@ export default function Aside({ className, ...rest }) {
                                     styles.dot,
                                     currentSlide === idx ? styles.active : '',
                                 )}
-                                role='none'
+                                aria-hidden='true'
                                 tabIndex='-1'
                             ></button>
                         )
@@ -162,7 +162,7 @@ export default function Aside({ className, ...rest }) {
                             instanceRef.current.track.details.slides.length - 1
                         }
                         className={styles.arrow}
-                        role='none'
+                        aria-hidden='true'
                         tabIndex='-1'
                     >
                         <svg
