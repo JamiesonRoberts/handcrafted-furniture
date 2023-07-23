@@ -92,10 +92,10 @@
     width: 0.75rem;
     height: 0.75rem;
     background: var(--color);
-    border-radius: 50%;
+    border-radius: 1rem;
     opacity: 0.25;
     cursor: pointer;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out;
 }
 
 .flickity-page-dots .dot:hover {
@@ -104,4 +104,5 @@
 
 .flickity-page-dots .dot.is-selected {
     opacity: 1;
+    width: 1.25rem;
 }
