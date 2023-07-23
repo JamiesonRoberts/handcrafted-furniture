@@ -139,7 +139,7 @@ export default function Aside({ className, ...rest }) {
                         ).keys(),
                     ].map((idx) => {
                         return (
-                            <button
+                            <span
                                 key={idx}
                                 onClick={() => {
                                     instanceRef.current?.moveToIdx(idx)
@@ -150,7 +150,7 @@ export default function Aside({ className, ...rest }) {
                                 )}
                                 aria-hidden='true'
                                 tabIndex='-1'
-                            ></button>
+                            ></span>
                         )
                     })}
                     <button
