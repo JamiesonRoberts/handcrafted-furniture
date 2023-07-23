@@ -1,8 +1,9 @@
+import Image from 'next/image'
+
 import classNames from 'classnames'
 import { useKeenSlider } from 'keen-slider/react'
 
 import styles from './index.module.css'
-import Image from 'next/image'
 
 const galleryContent = [
     {
@@ -73,10 +74,7 @@ const galleryContent = [
 
 export default function Aside({ className, ...rest }) {
     const [sliderRef] = useKeenSlider({
-        // selector: `.${styles.slide}`,
-        created(slider) {
-            // slider.container.classList.add();
-        },
+        selector: `.${styles.slide}`,
     })
 
     return (
