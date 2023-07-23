@@ -1,8 +1,8 @@
-import classNames from 'classnames';
-import { useKeenSlider } from 'keen-slider/react';
+import classNames from 'classnames'
+import { useKeenSlider } from 'keen-slider/react'
 
-import styles from './index.module.css';
-import Image from 'next/image';
+import styles from './index.module.css'
+import Image from 'next/image'
 
 const galleryContent = [
     {
@@ -39,7 +39,7 @@ const galleryContent = [
             ratio: 768 / 1024,
         },
         caption:
-          'Serving Tray & Cutting Board - Hard Maple / Black Walnut Butterfly Joints',
+            'Serving Tray & Cutting Board - Hard Maple / Black Walnut Butterfly Joints',
     },
     {
         img: {
@@ -69,44 +69,44 @@ const galleryContent = [
         },
         caption: 'Contemporary Chest of Drawers in Ash with Onyx stain',
     },
-];
+]
 
-export default function Aside ({ className, ...rest }) {
+export default function Aside({ className, ...rest }) {
     const [sliderRef] = useKeenSlider({
-        selector: `.${styles.slide}`,
-        created (slider) {
+        // selector: `.${styles.slide}`,
+        created(slider) {
             // slider.container.classList.add();
-        }
-    });
+        },
+    })
 
     return (
-      <aside className={classNames(styles.aside, className)} {...rest}>
-          <div ref={sliderRef} className={styles.gallery}>
-              {galleryContent.map((content, i) => {
-                  return (
-                    <figure key={i} className={styles.slide}>
-                        <div className={styles.imageHolder}>
-                            <Image
-                              className={styles.image}
-                              src={content.img.src}
-                              width={600}
-                              height={600 * content.img.ratio}
-                              priority={i === 0 ? true : false}
-                              sizes="(min-width: 75rem) 50vw, 90vw"
-                              alt={content.caption}
-                              aria-labelledby={`image-description-${i}`}
-                            />
-                        </div>
-                        <figcaption
-                          id={`image-description-${i}`}
-                          className={styles.caption}
-                        >
-                            {content.caption}
-                        </figcaption>
-                    </figure>
-                  );
-              })}
-          </div>
-      </aside>
-    );
+        <aside className={classNames(styles.aside, className)} {...rest}>
+            <div ref={sliderRef} className={styles.gallery}>
+                {galleryContent.map((content, i) => {
+                    return (
+                        <figure key={i} className={styles.slide}>
+                            <div className={styles.imageHolder}>
+                                <Image
+                                    className={styles.image}
+                                    src={content.img.src}
+                                    width={600}
+                                    height={600 * content.img.ratio}
+                                    priority={i === 0 ? true : false}
+                                    sizes='(min-width: 75rem) 50vw, 90vw'
+                                    alt={content.caption}
+                                    aria-labelledby={`image-description-${i}`}
+                                />
+                            </div>
+                            <figcaption
+                                id={`image-description-${i}`}
+                                className={styles.caption}
+                            >
+                                {content.caption}
+                            </figcaption>
+                        </figure>
+                    )
+                })}
+            </div>
+        </aside>
+    )
 }
