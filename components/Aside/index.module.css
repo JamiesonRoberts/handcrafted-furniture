@@ -75,14 +75,14 @@
 
 .arrow[disabled] {
     pointer-events: none;
-    opacity: 0.25;
+    opacity: 0.125;
     cursor: auto;
 }
 
 .dot {
     border: none;
-    width: 0.75rem;
-    height: 0.75rem;
+    width: 0.625rem;
+    height: 0.625rem;
     background-color: #c5c5c5;
     border-radius: 1rem;
     margin: 0;
