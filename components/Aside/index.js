@@ -1,8 +1,10 @@
+import { useState } from 'react'
+import Image from 'next/image'
+
 import classNames from 'classnames'
-import Flickity from 'react-flickity-component'
+import { useKeenSlider } from 'keen-slider/react'
 
 import styles from './index.module.css'
-import Image from 'next/image'
 
 const galleryContent = [
     {
@@ -72,33 +74,25 @@ const galleryContent = [
 ]
 
 export default function Aside({ className, ...rest }) {
+    const [currentSlide, setCurrentSlide] = useState(0)
+    const [loaded, setLoaded] = useState(false)
+    const [sliderRef, instanceRef] = useKeenSlider({
+        selector: `.${styles.slide}`,
+        draggable: true,
+        slideChanged(slider) {
+            setCurrentSlide(slider.track.details.rel)
+        },
+        created() {
+            setLoaded(true)
+        },
+    })
+
     return (
         <aside className={classNames(styles.aside, className)} {...rest}>
-            <Flickity
-                className={styles.gallery}
-                static={true}
-                options={{
-                    pageDots: true,
-                    cellAlign: 'left',
-                    contain: true,
-                    adaptiveHeight: true,
-                    arrowShape: {
-                        x0: 10,
-                        x1: 60,
-                        y1: 50,
-                        x2: 70,
-                        y2: 40,
-                        x3: 30,
-                    },
-                }}
-            >
+            <div ref={sliderRef} className={styles.gallery}>
                 {galleryContent.map((content, i) => {
                     return (
-                        <figure
-                            key={i}
-                            className={styles.slide}
-                            data-ratio={content.img.ratio}
-                        >
+                        <figure key={i} className={styles.slide}>
                             <div className={styles.imageHolder}>
                                 <Image
                                     className={styles.image}
@@ -120,7 +114,66 @@ export default function Aside({ className, ...rest }) {
                         </figure>
                     )
                 })}
-            </Flickity>
+            </div>
+            {loaded && instanceRef.current && (
+                <div className={styles.dots}>
+                    <button
+                        onClick={(e) =>
+                            e.stopPropagation() || instanceRef.current?.prev()
+                        }
+                        disabled={currentSlide === 0}
+                        className={styles.arrow}
+                        aria-hidden='true'
+                        tabIndex='-1'
+                    >
+                        <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            viewBox='0 0 24 24'
+                        >
+                            <path d='M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z' />
+                        </svg>
+                    </button>
+                    {[
+                        ...Array(
+                            instanceRef.current.track.details.slides.length,
+                        ).keys(),
+                    ].map((idx) => {
+                        return (
+                            <span
+                                key={idx}
+                                onClick={() => {
+                                    instanceRef.current?.moveToIdx(idx)
+                                }}
+                                className={classNames(
+                                    styles.dot,
+                                    currentSlide === idx ? styles.active : '',
+                                )}
+                                aria-hidden='true'
+                                tabIndex='-1'
+                            ></span>
+                        )
+                    })}
+                    <button
+                        onClick={(e) =>
+                            e.stopPropagation() || instanceRef.current?.next()
+                        }
+                        disabled={
+                            currentSlide ===
+                            instanceRef.current.track.details.slides.length - 1
+                        }
+                        className={styles.arrow}
+                        aria-hidden='true'
+                        tabIndex='-1'
+                    >
+                        <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            viewBox='0 0 24 24'
+                        >
+                            <path d='M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z' />
+                        </svg>
+                    </button>
+                </div>
+            )}
         </aside>
     )
 }
