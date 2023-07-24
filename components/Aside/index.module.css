@@ -1,30 +1,33 @@
 .aside {
     align-self: center;
-    padding: 0 1.5rem;
+    max-width: 37.5rem;
+    overflow: hidden;
+}
+
+@media (min-width: 75rem) {
+    .aside {
+        max-width: none;
+    }
 }
 
 .gallery {
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    align-content: flex-start;
+    display: flex;
+    overflow: hidden;
     position: relative;
-    outline: none;
-    margin-bottom: 2rem;
-}
-
-.gallery:not(:global(.flickity-enabled)) {
+    touch-action: pan-y;
+    user-select: none;
     width: 100%;
-    position: relative;
 }
 
 .slide {
+    overflow: hidden;
+    position: relative;
     width: 100%;
     margin: 0;
-}
-
-.gallery:not(:global(.flickity-enabled)) .slide {
-    flex: 0 0 100%;
-}
-
-.gallery:not(:global(.flickity-enabled)) .slide + .slide {
-    display: none;
+    flex: 1 0 100%;
 }
 
 .imageHolder {
@@ -47,4 +50,52 @@
     line-height: 1.125;
     font-size: 0.875rem;
     padding: 0.75rem;
+}
+
+.dots {
+    display: flex;
+    padding: 10px 0;
+    justify-content: center;
+    align-items: center;
+    gap: 0.825rem;
+}
+
+.arrow {
+    outline: none;
+    background-color: transparent;
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+    margin: 0 0.375rem;
+    border: 0;
+}
+
+.arrow[disabled] {
+    pointer-events: none;
+    opacity: 0.125;
+    cursor: auto;
+}
+
+.dot {
+    border: none;
+    width: 0.625rem;
+    height: 0.625rem;
+    background-color: #c5c5c5;
+    border-radius: 1rem;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, width 0.2s ease-in-out;
+}
+
+.dot:focus {
+    outline: none;
+}
+
+.dot.active {
+    background-color: #000;
+    width: 1rem;
 }
