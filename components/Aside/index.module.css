@@ -11,14 +11,7 @@
 }
 
 .gallery {
-    -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent;
-    align-content: flex-start;
-    display: flex;
-    overflow: hidden;
     position: relative;
-    touch-action: pan-y;
-    user-select: none;
     width: 100%;
 }
 
@@ -27,7 +20,6 @@
     position: relative;
     width: 100%;
     margin: 0;
-    flex: 1 0 100%;
 }
 
 .imageHolder {
@@ -52,50 +44,41 @@
     padding: 0.75rem;
 }
 
-.dots {
-    display: flex;
-    padding: 10px 0;
-    justify-content: center;
-    align-items: center;
-    gap: 0.825rem;
-}
-
-.arrow {
+.gallery :global(.flickity-viewport) {
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
     outline: none;
-    background-color: transparent;
-    width: 1.25rem;
-    height: 1.25rem;
-    padding: 0;
-    display: block;
-    cursor: pointer;
-    transition: opacity 0.2s ease-in-out;
-    margin: 0 0.375rem;
-    border: 0;
+    transition: height 0.2s ease-in-out;
 }
 
-.arrow[disabled] {
-    pointer-events: none;
-    opacity: 0.125;
-    cursor: auto;
+.gallery :global(.flickity-slider) {
+    width: 100%;
+    height: 100%;
 }
 
-.dot {
-    border: none;
-    width: 0.625rem;
-    height: 0.625rem;
-    background-color: #c5c5c5;
-    border-radius: 1rem;
+.gallery :global(.flickity-page-dots) {
+    list-style: none;
     margin: 0;
-    padding: 0;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out, width 0.2s ease-in-out;
+    padding: 0.5rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
-.dot:focus {
-    outline: none;
+.gallery :global(.dot::after) {
+    width: 0.75rem;
+    height: 0.75rem;
+    content: '';
+    background-color: black;
+    display: block;
+    border-radius: 1rem;
+    opacity: 0.3;
+    transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out;
 }
 
-.dot.active {
-    background-color: #000;
+.gallery :global(.dot.is-selected::after) {
+    opacity: 0.7;
     width: 1rem;
 }
