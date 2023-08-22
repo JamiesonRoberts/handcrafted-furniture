@@ -85,6 +85,7 @@ export default function Aside({ className, ...rest }) {
                     wrapAround: true,
                     draggable: true,
                 }}
+                static={true}
             >
                 {galleryContent.map((content, i) => {
                     return (
