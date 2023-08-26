@@ -6,6 +6,7 @@ import styles from './index.module.css'
 import { useRef, useState } from 'react'
 
 import stakeTruck from '../../public/gallery/stake-truck.jpg'
+import redOakBuffet from '../../public/gallery/red-oak-buffet-hutch.jpg'
 
 const galleryContent = [
     {
@@ -15,13 +16,13 @@ const galleryContent = [
         },
         caption: 'Stake Truck of various hardwoods',
     },
-    // {
-    //     img: {
-    //         src: '/gallery/red-oak-buffet-hutch.jpg',
-    //         ratio: 730 / 954,
-    //     },
-    //     caption: 'Red Oak Buffet & Hutch',
-    // },
+    {
+        img: {
+            src: redOakBuffet,
+            ratio: 730 / 954,
+        },
+        caption: 'Red Oak Buffet & Hutch',
+    },
     // {
     //     img: {
     //         src: '/gallery/lutyen-bench-v2.jpg',
@@ -105,11 +106,10 @@ export default function Aside({ className, ...rest }) {
                                 <Image
                                     className={styles.image}
                                     src={content.img.src}
-                                    placeholder={'blur'}
                                     width={600}
                                     height={600 * content.img.ratio}
                                     priority={i === 0}
-                                    sizes='(min-width: 75rem) 50vw, 90vw'
+                                    sizes='(min-width: 75rem) 50vw, (min-width: 37.5rem) 75vw, 90vw'
                                     alt={content.caption}
                                     aria-labelledby={`image-description-${i}`}
                                 />
