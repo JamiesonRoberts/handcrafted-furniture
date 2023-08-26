@@ -26,13 +26,17 @@
 .imageHolder {
     width: 100%;
     position: relative;
-    height: 28.125rem;
+    height: 66.6666666675vw;
+    max-height: 28.125rem;
     overflow: hidden;
 }
 
 @media (min-width: 75rem) {
     .imageHolder {
-
+        position: relative;
+        height: 0;
+        max-height: none;
+        padding-bottom: 75%;
     }
 }
 
@@ -41,6 +45,12 @@
     width: 100%;
     object-fit: contain;
     object-position: center;
+}
+
+@media (min-width: 75rem) {
+    .image {
+        position: absolute;
+    }
 }
 
 .caption {
