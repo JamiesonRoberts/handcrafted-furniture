@@ -80,6 +80,10 @@
     gap: 1rem;
 }
 
+.dot {
+    cursor: pointer;
+}
+
 .dot::after {
     width: 0.75rem;
     height: 0.75rem;
