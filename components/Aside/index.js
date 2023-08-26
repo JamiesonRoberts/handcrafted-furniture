@@ -6,70 +6,51 @@ import styles from './index.module.css'
 import { useRef, useState } from 'react'
 
 import stakeTruck from '../../public/gallery/stake-truck.jpg'
+import redOakBuffet from '../../public/gallery/red-oak-buffet-hutch.jpg'
+import lutyenBench from '../../public/gallery/lutyen-bench-v2.jpg'
+import chairStepLadder from '../../public/gallery/chair-step-ladder.jpg'
+import servingTray from '../../public/gallery/serving-tray-cutting-board.jpg'
+import patioTable from '../../public/gallery/patio-table.jpg'
+import cherryNightTable from '../../public/gallery/cherry-night-table.jpg'
+import musicStand from '../../public/gallery/bent-wood-music-stand.jpg'
+import chestOfDrawers from '../../public/gallery/chest-of-drawers.jpg'
 
 const galleryContent = [
     {
-        img: {
-            src: stakeTruck,
-            ratio: 768 / 1024,
-        },
+        src: stakeTruck,
         caption: 'Stake Truck of various hardwoods',
     },
     {
-        img: {
-            src: '/gallery/red-oak-buffet-hutch.jpg',
-            ratio: 730 / 954,
-        },
+        src: redOakBuffet,
         caption: 'Red Oak Buffet & Hutch',
     },
     {
-        img: {
-            src: '/gallery/lutyen-bench-v2.jpg',
-            ratio: 1350 / 1080,
-        },
+        src: lutyenBench,
         caption: 'Lutyen Bench in White Oak',
     },
     {
-        img: {
-            src: '/gallery/chair-step-ladder.jpg',
-            ratio: 1200 / 757,
-        },
+        src: chairStepLadder,
         caption: 'Chair / Step Ladder in Oak',
     },
     {
-        img: {
-            src: '/gallery/serving-tray-cutting-board.jpg',
-            ratio: 768 / 1024,
-        },
+        src: servingTray,
         caption:
             'Serving Tray & Cutting Board - Hard Maple / Black Walnut Butterfly Joints',
     },
     {
-        img: {
-            src: '/gallery/patio-table.jpg',
-            ratio: 677 / 994,
-        },
+        src: patioTable,
         caption: 'White Oak Patio Table with Extension Leaf',
     },
     {
-        img: {
-            src: '/gallery/cherry-night-table.jpg',
-            ratio: 1024 / 768,
-        },
+        src: cherryNightTable,
         caption: 'Cherry Night Table with Aromatic Cedar Drawer & Interior',
     },
     {
-        img: {
-            src: '/gallery/bent-wood-music-stand.jpg',
-            ratio: 1006 / 500,
-        },
+        src: musicStand,
         caption: 'Bent Wood Music Stand in White Oak',
     },
     {
-        img: {
-            src: '/gallery/chest-of-drawers.jpg',
-            ratio: 388 / 550,
-        },
+        src: chestOfDrawers,
         caption: 'Contemporary Chest of Drawers in Ash with Onyx stain',
     },
 ]
@@ -84,12 +65,8 @@ export default function Aside({ className, ...rest }) {
                 className={styles.gallery}
                 elementType={'div'}
                 options={{
-                    contain: true,
-                    adaptiveHeight: false,
                     pageDots: false,
                     prevNextButtons: false,
-                    wrapAround: true,
-                    draggable: true,
                 }}
                 flickityRef={(carouselRef) => {
                     flickity.current = carouselRef
@@ -104,7 +81,7 @@ export default function Aside({ className, ...rest }) {
                             <div className={styles.imageHolder}>
                                 <Image
                                     className={styles.image}
-                                    src={content.img.src}
+                                    src={content.src}
                                     priority={i === 0}
                                     sizes='(min-width: 75rem) 50vw, (min-width: 37.5rem) 75vw, 90vw'
                                     alt={content.caption}
@@ -122,8 +99,10 @@ export default function Aside({ className, ...rest }) {
                 })}
             </Flickity>
             <ol className={styles.pageDots}>
-                {galleryContent.map((content, i) => {
-                    const attributes = {}
+                {[...Array(galleryContent.length)].map((content, i) => {
+                    const attributes = {
+                        ariaLabel: `Page dot ${i + 1}`,
+                    }
                     if (activeDot === i) {
                         attributes['aria-current'] = 'step'
                     }
@@ -133,12 +112,10 @@ export default function Aside({ className, ...rest }) {
                             className={classNames(styles.dot, {
                                 [styles.selected]: activeDot === i,
                             })}
-                            data-index={i}
                             onClick={() => {
                                 flickity.current.select(i)
                                 setActiveDot(i)
                             }}
-                            aria-label={`Page dot ${i + 1}`}
                             {...attributes}
                         ></li>
                     )
