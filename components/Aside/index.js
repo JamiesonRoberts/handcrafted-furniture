@@ -96,7 +96,6 @@ export default function Aside({ className, ...rest }) {
                                     src={content.img.src}
                                     width={600}
                                     height={600 * content.img.ratio}
-                                    priority={i === 0 ? true : false}
                                     sizes='(min-width: 75rem) 50vw, 90vw'
                                     alt={content.caption}
                                     aria-labelledby={`image-description-${i}`}
