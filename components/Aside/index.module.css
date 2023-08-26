@@ -16,6 +16,7 @@
     margin-bottom: 1.25rem;
     max-height: 30.625rem;
     height: 77.06666666667vw;
+    display: flex;
 }
 
 @media (min-width: 75rem) {
@@ -30,10 +31,7 @@
     position: relative;
     width: 100%;
     margin: 0;
-}
-
-.gallery .slide:nth-child(n+2) {
-    display: none;
+    flex: 0 0 100%;
 }
 
 .imageHolder {
@@ -77,10 +75,7 @@
     margin-bottom: 0;
     max-height: none;
     height: auto;
-}
-
-.gallery:global(.flickity-enabled) .slide:nth-child(n+2) {
-    display: none;
+    display: block;
 }
 
 .gallery :global(.flickity-viewport) {
