@@ -3,6 +3,7 @@ import Flickity from 'react-flickity-component'
 import classNames from 'classnames'
 
 import styles from './index.module.css'
+import { useRef, useState } from 'react'
 
 const galleryContent = [
     {
@@ -72,18 +73,27 @@ const galleryContent = [
 ]
 
 export default function Aside({ className, ...rest }) {
+    const flickity = useRef(null)
+    const [activeDot, setActiveDot] = useState(0)
+
     return (
         <aside className={classNames(styles.aside, className)} {...rest}>
-            <Flickity
+            <div
                 className={styles.gallery}
                 elementType={'div'}
                 options={{
                     contain: true,
                     adaptiveHeight: false,
-                    pageDots: true,
+                    pageDots: false,
                     prevNextButtons: false,
                     wrapAround: true,
                     draggable: true,
+                }}
+                flickityRef={(carouselRef) => {
+                    flickity.current = carouselRef
+                    flickity.current.on('change', (index) => {
+                        setActiveDot(index)
+                    })
                 }}
             >
                 {galleryContent.map((content, i) => {
@@ -110,7 +120,25 @@ export default function Aside({ className, ...rest }) {
                         </figure>
                     )
                 })}
-            </Flickity>
+            </div>
+            <ol className={styles.pageDots}>
+                {galleryContent.map((content, i) => {
+                    const attributes = {}
+                    if (activeDot === i) {
+                        attributes['aria-current'] = 'step'
+                    }
+                    return (
+                        <li
+                            key={i}
+                            className={classNames(styles.dot, {
+                                [styles.selected]: activeDot === i,
+                            })}
+                            aria-label={`Page dot ${i + 1}`}
+                            {...attributes}
+                        ></li>
+                    )
+                })}
+            </ol>
         </aside>
     )
 }
