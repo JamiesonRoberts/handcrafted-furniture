@@ -13,6 +13,7 @@
 .gallery {
     position: relative;
     width: 100%;
+    padding-bottom: 1.25rem;
 }
 
 .slide {
@@ -24,13 +25,18 @@
 
 .imageHolder {
     width: 100%;
-    height: 0;
-    padding: 0 0 75% 0;
     position: relative;
+    height: 28.125rem;
+    overflow: hidden;
+}
+
+@media (min-width: 75rem) {
+    .imageHolder {
+
+    }
 }
 
 .image {
-    position: absolute;
     height: 100%;
     width: 100%;
     object-fit: contain;
@@ -44,13 +50,16 @@
     padding: 0.75rem;
 }
 
+.gallery:global(.flickity-enabled) {
+    padding-bottom: 0;
+}
+
 .gallery :global(.flickity-viewport) {
     background-color: white;
     overflow: hidden;
     position: relative;
     width: 100%;
     outline: none;
-    transition: height 0.2s ease-in-out;
 }
 
 .gallery :global(.flickity-slider) {

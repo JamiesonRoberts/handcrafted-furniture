@@ -79,11 +79,12 @@ export default function Aside({ className, ...rest }) {
                 elementType={'div'}
                 options={{
                     contain: true,
-                    adaptiveHeight: true,
+                    adaptiveHeight: false,
                     pageDots: true,
                     prevNextButtons: false,
                     wrapAround: true,
                     draggable: true,
+                    static: true,
                 }}
             >
                 {galleryContent.map((content, i) => {
