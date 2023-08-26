@@ -106,8 +106,6 @@ export default function Aside({ className, ...rest }) {
                                 <Image
                                     className={styles.image}
                                     src={content.img.src}
-                                    width={600}
-                                    height={600 * content.img.ratio}
                                     priority={i === 0}
                                     sizes='(min-width: 75rem) 50vw, (min-width: 37.5rem) 75vw, 90vw'
                                     alt={content.caption}
