@@ -19,13 +19,6 @@
     padding-bottom: 75%;
 }
 
-@media (min-width: 75rem) {
-    .gallery {
-        height: auto;
-        padding-bottom: 0;
-    }
-}
-
 .slide {
     overflow: hidden;
     position: relative;
