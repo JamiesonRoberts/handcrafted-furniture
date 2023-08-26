@@ -78,7 +78,7 @@ export default function Aside({ className, ...rest }) {
 
     return (
         <aside className={classNames(styles.aside, className)} {...rest}>
-            <div
+            <Flickity
                 className={styles.gallery}
                 elementType={'div'}
                 options={{
@@ -88,6 +88,7 @@ export default function Aside({ className, ...rest }) {
                     prevNextButtons: false,
                     wrapAround: true,
                     draggable: true,
+                    static: true,
                 }}
                 flickityRef={(carouselRef) => {
                     flickity.current = carouselRef
@@ -120,7 +121,7 @@ export default function Aside({ className, ...rest }) {
                         </figure>
                     )
                 })}
-            </div>
+            </Flickity>
             <ol className={styles.pageDots}>
                 {galleryContent.map((content, i) => {
                     const attributes = {}
@@ -133,6 +134,11 @@ export default function Aside({ className, ...rest }) {
                             className={classNames(styles.dot, {
                                 [styles.selected]: activeDot === i,
                             })}
+                            data-index={i}
+                            onClick={() => {
+                                flickity.current.select(i)
+                                setActiveDot(i)
+                            }}
                             aria-label={`Page dot ${i + 1}`}
                             {...attributes}
                         ></li>
