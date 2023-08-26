@@ -88,6 +88,7 @@ export default function Aside({ className, ...rest }) {
                     prevNextButtons: false,
                     wrapAround: true,
                     draggable: true,
+                    static: true,
                 }}
                 flickityRef={(carouselRef) => {
                     flickity.current = carouselRef

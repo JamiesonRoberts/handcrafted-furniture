@@ -22,7 +22,7 @@
 @media (min-width: 75rem) {
     .gallery {
         height: auto;
-        max-height: none;
+        padding-bottom: 0;
     }
 }
 
