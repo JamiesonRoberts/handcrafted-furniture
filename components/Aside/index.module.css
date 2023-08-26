@@ -14,6 +14,15 @@
     position: relative;
     width: 100%;
     padding-bottom: 1.25rem;
+    max-height: 30.625rem;
+    height: 76.08695652vw;
+}
+
+@media (min-width: 75rem) {
+    .gallery {
+        height: auto;
+        max-height: none;
+    }
 }
 
 .slide {
@@ -62,6 +71,8 @@
 
 .gallery:global(.flickity-enabled) {
     padding-bottom: 0;
+    max-height: none;
+    height: auto;
 }
 
 .gallery :global(.flickity-viewport) {
