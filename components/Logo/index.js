@@ -13,7 +13,6 @@ export default function Logo({ tag = 'h1', className, ...rest }) {
             <span className={styles.subText}>
                 By Ken Roberts{' '}
                 <Image
-                    priority
                     src={mapleLeaf}
                     width={38}
                     height={41}
