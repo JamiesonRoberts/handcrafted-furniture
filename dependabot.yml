@@ -10,3 +10,11 @@ updates:
       interval: "monthly"
     ignore:
       - dependency-name: "flickity"
+        versions: ["3.x"]
+    labels:
+      - "npm"
+      - "dependencies"
+    groups:
+      npm:
+        patterns:
+          - "*"
