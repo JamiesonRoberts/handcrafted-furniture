@@ -101,7 +101,7 @@ export default function Aside({ className, ...rest }) {
             <ol className={styles.pageDots}>
                 {[...Array(galleryContent.length)].map((content, i) => {
                     const attributes = {
-                        ariaLabel: `Page dot ${i + 1}`,
+                        'aria-label': `Page dot ${i + 1}`,
                     }
                     if (activeDot === i) {
                         attributes['aria-current'] = 'step'
