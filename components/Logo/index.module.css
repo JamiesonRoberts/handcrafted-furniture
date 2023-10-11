@@ -1,11 +1,11 @@
 .tag {
-    font-family: var(--garamond);
     position: relative;
     font-variant: small-caps;
     font-weight: 500;
     font-size: 2rem;
     margin: 0;
     display: inline-block;
+    font-family: var(--font-garamond);
 }
 
 .subText {
