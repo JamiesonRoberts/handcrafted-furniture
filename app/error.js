@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Logo from '@/components/Logo'
 
 export default function Error() {
     return (
@@ -16,7 +15,6 @@ export default function Error() {
                 gap: '1rem',
             }}
         >
-            <Logo tag={'div'} />
             <h1>Whoops - Something didn&apos;t quite go right there</h1>
             <Link href='/'>Return back to the main page</Link>
         </div>
