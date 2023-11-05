@@ -1,0 +1,38 @@
+.externalLinkList {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    gap: 1rem;
+}
+
+.externalLink {
+    display: flex;
+    align-items: center;
+}
+
+.externalLinkSVGIcon {
+    height: 2rem;
+    width: auto;
+}
+
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+.aside {
+    align-self: center;
+    max-width: 37.5rem;
+    overflow: hidden;
+}
+
+@media (min-width: 75rem) {
+    .aside {
+        max-width: none;
+    }
+}

@@ -1,19 +1,20 @@
+'use client'
+
 import Image from 'next/image'
 import Flickity from 'react-flickity-component'
-import classNames from 'classnames'
 
 import styles from './index.module.css'
 import { useRef, useState } from 'react'
 
-import stakeTruck from '../../public/gallery/stake-truck.jpg'
-import redOakBuffet from '../../public/gallery/red-oak-buffet-hutch.jpg'
-import lutyenBench from '../../public/gallery/lutyen-bench-v2.jpg'
-import chairStepLadder from '../../public/gallery/chair-step-ladder.jpg'
-import servingTray from '../../public/gallery/serving-tray-cutting-board.jpg'
-import patioTable from '../../public/gallery/patio-table.jpg'
-import cherryNightTable from '../../public/gallery/cherry-night-table.jpg'
-import musicStand from '../../public/gallery/bent-wood-music-stand.jpg'
-import chestOfDrawers from '../../public/gallery/chest-of-drawers.jpg'
+import stakeTruck from '@/public/gallery/stake-truck.jpg'
+import redOakBuffet from '@/public/gallery/red-oak-buffet-hutch.jpg'
+import lutyenBench from '@/public/gallery/lutyen-bench-v2.jpg'
+import chairStepLadder from '@/public/gallery/chair-step-ladder.jpg'
+import servingTray from '@/public/gallery/serving-tray-cutting-board.jpg'
+import patioTable from '@/public/gallery/patio-table.jpg'
+import cherryNightTable from '@/public/gallery/cherry-night-table.jpg'
+import musicStand from '@/public/gallery/bent-wood-music-stand.jpg'
+import chestOfDrawers from '@/public/gallery/chest-of-drawers.jpg'
 
 const galleryContent = [
     {
@@ -55,12 +56,12 @@ const galleryContent = [
     },
 ]
 
-export default function Aside({ className, ...rest }) {
+export default function Aside() {
     const flickity = useRef(null)
     const [activeDot, setActiveDot] = useState(0)
 
     return (
-        <aside className={classNames(styles.aside, className)} {...rest}>
+        <>
             <Flickity
                 className={styles.gallery}
                 elementType={'div'}
@@ -109,9 +110,7 @@ export default function Aside({ className, ...rest }) {
                     return (
                         <li
                             key={i}
-                            className={classNames(styles.dot, {
-                                [styles.selected]: activeDot === i,
-                            })}
+                            className={`${styles.dot} ${activeDot === i ? styles.selected : ''}`}
                             onClick={() => {
                                 flickity.current.select(i)
                                 setActiveDot(i)
@@ -121,6 +120,6 @@ export default function Aside({ className, ...rest }) {
                     )
                 })}
             </ol>
-        </aside>
+        </>
     )
 }

@@ -1,15 +1,3 @@
-.aside {
-    align-self: center;
-    max-width: 37.5rem;
-    overflow: hidden;
-}
-
-@media (min-width: 75rem) {
-    .aside {
-        max-width: none;
-    }
-}
-
 .gallery {
     position: relative;
     width: 100%;
