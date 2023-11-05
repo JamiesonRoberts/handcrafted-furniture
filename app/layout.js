@@ -15,12 +15,17 @@ const montserrat = Montserrat({
     display: 'swap',
 })
 
-export const metadata = {
-    metadataBase: new URL('https://handcraftedfurniture.ca/'),
+export const viewport = {
     viewport: {
         width: 'device-width',
         initialScale: 1,
     },
+    themeColor: '#F7F7F7',
+    colorScheme: 'light',
+}
+
+export const metadata = {
+    metadataBase: new URL('https://handcraftedfurniture.ca/'),
     icons: {
         icon: [
             { url: '/favicon.ico', sizes: '32x32' },
@@ -29,7 +34,6 @@ export const metadata = {
         apple: '/apple-touch-icon.png',
     },
     manifest: '/site.webmanifest',
-    themeColor: '#F7F7F7',
 }
 
 export default function RootLayout({ children }) {

@@ -1,6 +1,6 @@
 const localBusinessJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'FurnitureStore',
+    '@type': 'Woodworker',
     '@id': 'https://handcraftedfurniture.ca/#localbusiness',
     name: 'Handcrafted Furniture by Ken Roberts',
     contactPoint: [
@@ -16,7 +16,6 @@ const localBusinessJsonLd = {
         'https://www.facebook.com/HCFurn',
         'https://www.instagram.com/ker1948/',
     ],
-    hasMap: 'https://www.google.ca/maps/place/Hand+Crafted+Furniture/@43.00868,-81.3211775,17z/data=!3m1!4b1!4m6!3m5!1s0x882eefe7f2439f1d:0xcd6fc98cbcdaf24c!8m2!3d43.00868!4d-81.3186026!16s%2Fg%2F11s490vd9n?entry=ttu',
     email: 'ken@handcraftedfurniture.ca',
     telephone: '+15198723930',
     address: {
