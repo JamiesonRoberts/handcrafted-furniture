@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Logo from '@/components/Logo'
 
 export const metadata = {
     title: 'Whoops, something went wrong.',
@@ -17,6 +18,7 @@ export default function NotFound() {
                 gap: '1rem',
             }}
         >
+            <Logo tag={'div'} />
             <h1>404 - Page Not Found</h1>
             <Link href={'/'}>Return back to the main page</Link>
         </div>
