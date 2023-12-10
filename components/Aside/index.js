@@ -5,6 +5,9 @@ import Image from 'next/image'
 import styles from './index.module.css'
 import { useState } from 'react'
 
+import 'keen-slider/keen-slider.min.css'
+import { useKeenSlider } from 'keen-slider/react'
+
 import stakeTruck from '@/public/gallery/stake-truck.jpg'
 import redOakBuffet from '@/public/gallery/red-oak-buffet-hutch.jpg'
 import lutyenBench from '@/public/gallery/lutyen-bench-v2.jpg'
@@ -58,14 +61,24 @@ const galleryContent = [
 export default function Aside() {
   const [activeDot, setActiveDot] = useState(0)
 
+  const [sliderRef, instanceRef] = useKeenSlider(
+    {
+      initial: 0,
+      slideChanged(slider) {
+        setActiveDot(slider.track.details.rel)
+      }
+    },
+  )
+
   return (
     <>
       <div
-        className={styles.gallery}
+        className={`${styles.gallery} keen-slider`}
+        ref={sliderRef}
       >
         {galleryContent.map((content, i) => {
           return (
-            <figure key={i} className={styles.slide}>
+            <figure key={i} className={`${styles.slide} keen-slider__slide`}>
               <div className={styles.imageHolder}>
                 <Image
                   className={styles.image}
@@ -101,7 +114,7 @@ export default function Aside() {
                 activeDot === i ? styles.selected : ''
               }`}
               onClick={() => {
-                setActiveDot(i)
+                instanceRef.current?.moveToIdx(i)
               }}
               {...attributes}
             ></li>
