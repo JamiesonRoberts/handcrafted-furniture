@@ -1,57 +1,65 @@
 :root {
-    --background-color: #F7F7F7;
-    --color: #1c1c1b;
-    --link-color-hover: rgba(190, 80, 39, 1);
+  --background-color: #f7f7f7;
+  --color: #1c1c1b;
+  --link-color-hover: rgba(190, 80, 39, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html:focus-within {
-        /* turns off smooth-scrolling behavior (if turned on) when prefers-reduced-motion is active*/
-        scroll-behavior: auto;
-    }
+  html:focus-within {
+    /* turns off smooth-scrolling behavior (if turned on) when prefers-reduced-motion is active*/
+    scroll-behavior: auto;
+  }
 
-    *:not(.animates-without-motion),
-    *:not(.animates-without-motion)::before,
-    *:not(.animates-without-motion)::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+  *:not(.animates-without-motion),
+  *:not(.animates-without-motion)::before,
+  *:not(.animates-without-motion)::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-*, *::before, *::after {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: var(--font-montserrat);
-    text-rendering: optimizeLegibility;
-    line-height: 1.5rem;
-    padding: 1.5rem;
+  margin: 0;
+  font-family: var(--font-montserrat);
+  text-rendering: optimizeLegibility;
+  line-height: 1.5rem;
+  padding: 1.5rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-garamond);
-    font-weight: 600;
-    line-height: 1em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-garamond);
+  font-weight: 600;
+  line-height: 1em;
 }
 
 a {
-    color: inherit;
-    transition: color 0.2s ease-in-out;
+  color: inherit;
+  transition: color 0.2s ease-in-out;
 }
 
-a:hover, a:focus {
-    color: var(--link-color-hover);
+a:hover,
+a:focus {
+  color: var(--link-color-hover);
 }
 
 @media (min-width: 75rem) {
-    body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-    }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
 }

@@ -1,9 +1,9 @@
 export default function robots() {
-    return {
-        rules: {
-            userAgent: '*',
-            allow: '/'
-        },
-        sitemap: 'https://handcraftedfurniture.ca/sitemap.xml',
-    }
+  return {
+    rules: {
+      userAgent: '*',
+      allow: '/',
+    },
+    sitemap: 'https://handcraftedfurniture.ca/sitemap.xml',
+  }
 }
