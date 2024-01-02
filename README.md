@@ -1,4 +1,4 @@
-# Project Play
+# Handcrafted Furniture
 
 ## 📦 Install
 
