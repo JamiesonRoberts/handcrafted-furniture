@@ -31,7 +31,7 @@ export const metadata = {
     images: [
       {
         url: '/gallery/lutyen-bench-v2.jpg',
-        alt: 'Lutyen 3Bench in White Oak made by Handcrafted Furniture',
+        alt: 'Lutyen Bench in White Oak made by Handcrafted Furniture',
       },
     ],
   },
