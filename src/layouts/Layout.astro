@@ -1,0 +1,70 @@
+---
+import { ClientRouter } from 'astro:transitions'
+import { Font } from 'astro:assets'
+
+import '@/styles/global.scss'
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+
+const locale = Astro.currentLocale
+const openGraphLocale = locale.replace('-', '_')
+
+const defaultSiteImage = new URL('gallery/lutyen-bench-v2.jpg', Astro.site)
+const defaultSiteImageAlt = 'Lutyen Bench in White Oak made by Ken Roberts at Handcrafted Furniture'
+
+const { seo } = Astro.props
+---
+
+<!doctype html>
+<html lang={locale ?? 'en-CA'}>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+
+    <title>{seo?.title}</title>
+    <meta name='description' content={seo?.description} />
+
+    <link rel='canonical' href={canonicalURL} />
+    <link rel='sitemap' href='/sitemap-index.xml' />
+
+    <meta property='og:title' content={seo?.title} />
+    <meta property='og:description' content={seo?.description} />
+    <meta property='og:locale' content={openGraphLocale ?? 'en_CA'} />
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content={canonicalURL} />
+    <meta property='og:image' content={seo?.image ?? defaultSiteImage} />
+    <meta
+      property='og:image:alt'
+      content={seo?.imageAlt ?? defaultSiteImageAlt}
+    />
+
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:creator' content='@JamiesonRoberts' />
+    <meta name='twitter:title' content={seo?.title} />
+    <meta
+      name='twitter:description'
+      content={seo?.description ?? seo?.description}
+    />
+    <meta name='twitter:image' content={seo?.image ?? defaultSiteImage} />
+    <meta
+      name='twitter:image:alt'
+      content={seo?.imageAlt ?? defaultSiteImageAlt}
+    />
+
+    <meta name='theme-color' content='#F7F7F7' />
+    <meta name='color-scheme' content='only light' />
+
+    <link rel='icon' href='/favicon.ico' sizes='any' />
+    <link rel='icon' href='/icon.svg' type='image/svg+xml' />
+    <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+
+    <link rel='manifest' href='/manifest.webmanifest' />
+
+    <Font cssVariable='--primary-font' />
+    <Font cssVariable='--secondary-font' />
+    <ClientRouter />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

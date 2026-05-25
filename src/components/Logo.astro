@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets'
+
+import mapleLeaf from '@/assets/maple-leaf.png'
+
+const { Tag = 'h1' } = Astro.props
+---
+
+<Tag class:list={'logo'}>
+  Handcrafted Furniture
+  <span class:list={'subText'}>
+    By Ken Roberts
+    <Image
+      src={mapleLeaf}
+      alt={'A maple leaf'}
+      aria-hidden={true}
+      class:list={'icon'}
+      loading={'eager'}
+    />
+  </span>
+</Tag>
+
+<style>
+  .logo {
+    position: relative;
+    font-variant: small-caps;
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 0;
+    display: inline-block;
+    font-family: var(--primary-font);
+
+    @media (width <= 26rem) {
+      font-size: 1.45rem;
+    }
+  }
+
+  .subText {
+    font-style: italic;
+    font-size: 0.55em;
+    display: flex;
+    margin-top: -0.25em;
+    margin-left: 44%;
+  }
+
+  .icon {
+    width: 2.1591em;
+    height: auto;
+  }
+</style>
