@@ -35,7 +35,7 @@ export default defineConfig([
       parser: astroParser,
     },
     rules: {
-      'no-new': 0,
+      'no-new': 'off',
       'no-undef': 'off', // Disable "not defined" errors for specific Astro types that are globally available (ImageMetadata)
       'react/self-closing-comp': 'off',
       'react/jsx-boolean-value': 'off',
