@@ -1,0 +1,562 @@
+---
+import Image from 'astro/components/Image.astro'
+
+const files = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/gallery/*.{jpeg,jpg,png,gif}',
+)
+const fileMap = Object.entries(files)
+
+const descriptions = [
+  'Stake Truck of various hardwoods',
+  'Red Oak Buffet & Hutch',
+  'Lutyen Bench in White Oak',
+  'Chair / Step Ladder in Oak',
+  'Serving Tray & Cutting Board - Hard Maple / Black Walnut Butterfly Joints',
+  'White Oak Patio Table with Extension Leaf',
+  'Cherry Night Table with Aromatic Cedar Drawer & Interior',
+  'Bent Wood Music Stand in White Oak',
+  'Contemporary Chest of Drawers in Ash with Onyx stain',
+]
+---
+
+<style>
+  .carousel {
+    position: relative;
+
+    .button--carousel {
+      width: 1.5rem;
+      height: 1.5rem;
+      border: none;
+      line-height: 0;
+      z-index: 1;
+      background: #fff;
+      position: absolute;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: #000;
+      top: 50%;
+      transform: translateY(-50%);
+
+      svg {
+        height: 0.75rem;
+        width: auto;
+        pointer-events: none;
+        fill: currentColor;
+        transition: fill 0.2s;
+      }
+
+      &[disabled],
+      &:disabled {
+        opacity: 0.2;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+
+      &:is(:hover, :focus) {
+        color: var(--link-color-hover);
+      }
+
+      @media (hover: hover) {
+        display: flex;
+      }
+
+      &[data-direction='next'] {
+        right: 0;
+      }
+
+      &[data-direction='previous'] {
+        left: 0;
+      }
+    }
+
+    .carousel--viewport {
+      overflow: scroll auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: transparent transparent;
+      scroll-behavior: smooth;
+      width: 100%;
+      will-change: scroll-position;
+      transition: scrollbar-color 0.15s;
+      overscroll-behavior: contain auto;
+      scrollbar-width: none;
+      position: relative;
+      outline: none;
+      display: flex;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .carousel--cell {
+        scroll-snap-align: center;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        margin: 0;
+        flex: 0 0 100%;
+
+        .imageHolder {
+          width: 100%;
+          height: 0;
+          padding-bottom: 75%;
+          position: relative;
+
+          img,
+          picture {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+            position: absolute;
+          }
+        }
+
+        &:first-child {
+          scroll-snap-align: start;
+        }
+
+        &:last-child {
+          scroll-snap-align: end;
+        }
+
+        figcaption {
+          text-align: center;
+          line-height: 1.125;
+          font-size: 0.875rem;
+          padding: 0.5rem;
+          width: 100%;
+        }
+      }
+    }
+
+    .carousel--dots {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding-top: 0.5rem;
+
+      .carousel--dot {
+        display: block;
+        width: 0.4375rem;
+        height: 0.4375rem;
+        border-radius: 50%;
+        transition: opacity 0.15s;
+        cursor: pointer;
+        background-color: black;
+        opacity: 0.3;
+
+        &.active {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+</style>
+
+<div class:list={'carousel'} id={'gallery-carousel'}>
+  <button
+    type='button'
+    class:list={'button--carousel'}
+    data-direction='previous'
+    tabindex='-1'
+    disabled
+    aria-label={'Previous slide'}
+  >
+    <svg
+      width='7'
+      height='12'
+      viewBox='0 0 7 12'
+      xmlns='http://www.w3.org/2000/svg'
+      aria-hidden='true'
+    >
+      <path
+        d='M0 6.00773L5.28155 11.2658L6.16181 10.3895L0.880259 5.13138L0 6.00773Z'
+      ></path>
+      <path
+        d='M0.880008 6.88442L6.16156 1.62635L5.2813 0.75L0 6.00773L0.880008 6.88442Z'
+      ></path>
+    </svg>
+  </button>
+  <button
+    type='button'
+    class:list={'button--carousel'}
+    data-direction='next'
+    tabindex='-1'
+    aria-label={'Next slide'}
+  >
+    <svg
+      width='7'
+      height='12'
+      viewBox='0 0 7 12'
+      xmlns='http://www.w3.org/2000/svg'
+      aria-hidden='true'
+    >
+      <path
+        d='M6.16211 6.00773L0.880561 11.2658L0.000302792 10.3895L5.28185 5.13138L6.16211 6.00773Z'
+      ></path>
+      <path
+        d='M5.2821 6.88442L0.000552177 1.62635L0.880811 0.75L6.16211 6.00773L5.2821 6.88442Z'
+      ></path>
+    </svg>
+  </button>
+  <div class:list={'carousel--viewport'}>
+    {
+      fileMap.map(([key, value], i) => {
+        return (
+          <figure
+            class:list={'carousel--cell'}
+            aria-describedby={`image-description-${i}`}
+          >
+            <div class:list={'imageHolder'}>
+              <Image src={value()} alt='' />
+            </div>
+            <figcaption id={`image-description-${i}`}>
+              {descriptions[i]}
+            </figcaption>
+          </figure>
+        )
+      })
+    }
+  </div>
+  <div class='carousel--dots'>
+    {
+      fileMap.map((_, i) => {
+        return (
+          <span
+            class:list={['carousel--dot', i === 0 && 'active']}
+            data-cell={i}
+            aria-label={`Gallery indicator for ${i + 1}`}
+          />
+        )
+      })
+    }
+  </div>
+</div>
+
+<script>
+  ;(() => {
+    function Debounce(func, wait = 500) {
+      let timer
+      return (...args) => {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          timer = null
+          func.apply(this, args)
+        }, wait)
+      }
+    }
+    function Carousel(
+      node,
+      {
+        cell = '.carousel--cell',
+        viewport = '.carousel--viewport',
+        dot = '.carousel--dot',
+        initial = 0,
+        scrollBehaviour = 'smooth',
+        stepSize = null,
+        autoPlay = null, // numeric ex: 3000
+        interactionDelay = 10,
+      } = {
+        cell: '.carousel--cell',
+        viewport: '.carousel--viewport',
+        dot: '.carousel--dot',
+        initial: 0,
+        scrollBehaviour: 'smooth',
+        stepSize: null,
+        autoPlay: null, // numeric ex: 3000
+        interactionDelay: 10,
+      },
+    ) {
+      this.loop = !!autoPlay
+      this.node = node ?? null
+      this.viewport =
+        node.querySelector(viewport) ??
+        node.querySelector('[class*="viewport"]') ??
+        null
+
+      if (!this.viewport || !this.node) {
+        throw new Error('No carousel container or viewport detected')
+      }
+
+      this.next = node.querySelector('[data-direction="next"]') ?? null
+      this.previous = node.querySelector('[data-direction="previous"]') ?? null
+      this.cells = Array.from(
+        this.viewport.querySelectorAll(`:scope > ${cell}`),
+      )
+      this.dots = Array.from(node.querySelectorAll(dot)) ?? null
+      this.start = 0
+      this.end = this.cells.length - 1
+      this.initHasHappened = false
+      this.currentStart = null
+      this.currentEnd = null
+      this.stepSize = 1
+      this.initialWidth = this.viewport.getBoundingClientRect().width
+      this.initialHeight = this.viewport.getBoundingClientRect().height
+
+      let scrollOffsetLeft = parseFloat(
+        getComputedStyle(this.viewport).paddingLeft,
+      )
+      let autoPlayTimer = null
+
+      if (initial !== 0 && !this.initHasHappened) {
+        this.viewport.scrollLeft =
+          this.cells[initial].offsetLeft - scrollOffsetLeft
+      }
+
+      const getCurrentStart = () => {
+        const startIndex = this.cells.findIndex((ele) =>
+          ele.classList.contains('current-cell'),
+        )
+        return startIndex < 0 ? this.start : startIndex
+      }
+
+      const getCurrentEnd = () => {
+        const endingIndex = [...this.cells]
+          .reverse()
+          .findIndex((ele) => ele.classList.contains('current-cell'))
+
+        return endingIndex >= 0 ? this.end - endingIndex : endingIndex
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            entry.target.classList.toggle(
+              'current-cell',
+              entry.intersectionRatio > 0.925,
+            )
+          })
+
+          if (!this.initHasHappened) setup()
+        },
+        {
+          root: this.viewport,
+          threshold: [0, 0.5, 0.8, 0.85, 0.9, 0.95, 1],
+        },
+      )
+
+      this.cells.forEach((cell) => observer.observe(cell))
+
+      if (this.dots.length > 0) {
+        this.dots.forEach((dot) => {
+          const dotCellRef = Number(dot.getAttribute('data-cell'))
+
+          this.node.addEventListener('settle', ({ detail }) => {
+            dot.classList.toggle(
+              'active',
+              dotCellRef >= detail.currentStart &&
+                dotCellRef <= detail.currentEnd,
+            )
+          })
+
+          dot.addEventListener('click', () => {
+            if (
+              this.currentStart === dotCellRef &&
+              this.currentEnd === dotCellRef
+            ) {
+              return
+            }
+
+            this.node.dispatchEvent(
+              new CustomEvent('select', {
+                detail: { selected: dotCellRef },
+              }),
+            )
+          })
+        })
+      }
+
+      this.previous?.addEventListener('click', () => {
+        if (!this.initHasHappened) return
+        if (this.previous.disabled) return
+
+        const end = this.stepSize > 1 ? this.currentEnd : this.currentStart
+        const previousStep = Math.max(this.start, end - this.stepSize)
+
+        this.viewport.removeAttribute('data-locked')
+        this.node.dispatchEvent(
+          new CustomEvent('select', { detail: { selected: previousStep } }),
+        )
+      })
+
+      this.next?.addEventListener('click', () => {
+        if (!this.initHasHappened || !this.next) return
+        if (this.next.disabled) return
+
+        const nextStep = Math.min(this.end, this.currentStart + this.stepSize)
+
+        this.viewport.removeAttribute('data-locked')
+        this.node.dispatchEvent(
+          new CustomEvent('select', { detail: { selected: nextStep } }),
+        )
+      })
+
+      this.node.addEventListener('select', ({ detail }) => {
+        if (!this.initHasHappened) return
+
+        const scrollOverride = detail?.override || false
+        const behavior = detail?.behavior || scrollBehaviour
+        const selectedIndex = detail?.selected || 0
+        let selectedStep = selectedIndex
+
+        if (this.stepSize > 1) {
+          selectedStep =
+            Math.floor(selectedIndex / this.stepSize) * this.stepSize
+        }
+
+        if (this.cells[selectedStep] === undefined) return
+        if (
+          this.cells[selectedStep].classList.contains('current-cell') &&
+          this.cells[selectedStep + this.stepSize]?.classList.contains(
+            'current-cell',
+          ) &&
+          this.stepSize > 1 &&
+          !scrollOverride
+        ) {
+          return
+        }
+
+        if (interactionDelay > 10) {
+          this.cells.forEach((cell) => cell.classList.remove('current-cell'))
+        }
+
+        setTimeout(() => {
+          this.viewport.scrollTo({
+            top: 0,
+            left:
+              selectedStep === 0 ? 0 : (
+                this.cells[selectedStep].offsetLeft - scrollOffsetLeft
+              ),
+            behavior,
+          })
+        }, interactionDelay)
+
+        if (behavior === 'instant') {
+          setTimeout(() => {
+            scrollStateUpdate()
+          }, interactionDelay + 50)
+        }
+      })
+
+      const scrollStateUpdate = () => {
+        this.currentStart = getCurrentStart()
+        this.currentEnd = getCurrentEnd()
+
+        this.previous?.toggleAttribute(
+          'disabled',
+          this.currentStart === this.start,
+        )
+        this.next?.toggleAttribute('disabled', this.currentEnd === this.end)
+
+        this.node.dispatchEvent(new CustomEvent('settle', { detail: this }))
+      }
+      this.viewport.addEventListener('scrollend', scrollStateUpdate)
+      if ('onscrollend' in window) {
+        this.viewport.addEventListener('scrollend', scrollStateUpdate)
+      } else {
+        this.viewport.addEventListener(
+          'scroll',
+          Debounce(() => {
+            clearTimeout(this.scrollEndTimer)
+            this.scrollEndTimer = setTimeout(scrollStateUpdate, 90)
+          }, 10),
+        )
+      }
+
+      const startAutoPlay = () => {
+        autoPlayTimer = setInterval(() => {
+          let nextStep = this.currentStart + this.stepSize
+
+          if (nextStep > this.end) {
+            nextStep = this.loop ? this.start : this.end
+          }
+
+          this.node.dispatchEvent(
+            new CustomEvent('select', { detail: { selected: nextStep } }),
+          )
+        }, autoPlay)
+      }
+
+      const stopAutoPlay = () => {
+        clearInterval(autoPlayTimer)
+      }
+
+      const setup = () => {
+        this.stepSize =
+          stepSize ??
+          Math.max(
+            1,
+            this.cells.filter((cell) => cell.classList.contains('current-cell'))
+              .length,
+          )
+
+        scrollStateUpdate()
+
+        if (this.loop) {
+          startAutoPlay()
+          this.node.addEventListener('mouseenter', stopAutoPlay)
+          this.node.addEventListener('mouseleave', startAutoPlay)
+        }
+
+        if (this.dots.length > 0) {
+          this.dots.forEach((dot) => {
+            const dotCellRef = Number(dot.getAttribute('data-cell'))
+
+            dot.classList.toggle(
+              'active',
+              dotCellRef >= this.currentStart && dotCellRef <= this.currentEnd,
+            )
+          })
+        }
+
+        if (!this.initHasHappened) {
+          this.initHasHappened = true
+          this.node.dispatchEvent(new CustomEvent('ready', { detail: this }))
+        }
+      }
+
+      this.node.addEventListener('resize', () => {
+        if (!this.initHasHappened) return
+        if (
+          this.initialHeight === this.viewport.getBoundingClientRect().height &&
+          this.initialWidth === this.viewport.getBoundingClientRect().width
+        ) {
+          return
+        }
+
+        this.stepSize =
+          stepSize ??
+          Math.max(
+            1,
+            this.cells.filter((cell) => cell.classList.contains('current-cell'))
+              .length,
+          )
+
+        scrollOffsetLeft = parseFloat(
+          getComputedStyle(this.viewport).paddingLeft,
+        )
+
+        scrollStateUpdate()
+
+        const resizeStart = this.cells.findIndex((ele) =>
+          ele.classList.contains('current-cell'),
+        )
+
+        this.node.dispatchEvent(
+          new CustomEvent('select', {
+            detail: { selected: resizeStart, override: true },
+          }),
+        )
+      })
+
+      window.addEventListener(
+        'resize',
+        Debounce(() => this.node.dispatchEvent(new CustomEvent('resize')), 100),
+      )
+    }
+
+    new Carousel(document.getElementById('gallery-carousel'))
+  })()
+</script>
